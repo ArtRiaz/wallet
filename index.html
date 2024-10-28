@@ -120,18 +120,20 @@
         <label for="token">Select the token to deposit (Min 0.0001 BTC)</label>
         <select id="token">
             <option value="btc">BTC</option>
-            <!-- Можно добавить другие токены -->
+            <option value="eth">ETH</option>
+            <option value="usdt">USDT</option>
+            <option value="ton">TON</option>
         </select>
     </div>
 
     <div class="deposit-info">
-        <div>BTC deposit address</div>
+        <div>Deposit address</div>
         <div class="deposit-address" id="depositAddress">bc1qxw3l0685tf7qnvk7wyy3m7wz...</div>
         <div class="qr-code" id="qrCode"></div>
     </div>
 
     <div class="footer-text">
-        Send only BTC to this deposit address.<br>
+        Send only the selected token to this deposit address.<br>
         Values sent below the minimum amount or to an incorrect address will be lost.
     </div>
 </div>
@@ -149,3 +151,4 @@
 
 </body>
 </html>
+
