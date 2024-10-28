@@ -169,11 +169,8 @@
 </div>
 
 <script>
-    const tg = window.Telegram.WebApp;
-        tg.expand();
     // Адрес депозита для QR-кода
     const depositAddress = "bc1qxw3l0685tf7qnvk7wyy3m7wz..."; // Используйте реальный адрес
-
     // Генерация QR-кода
     QRCode.toCanvas(document.getElementById('qrCode'), depositAddress, {
         width: 180, // Размер QR-кода
