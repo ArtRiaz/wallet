@@ -66,22 +66,33 @@
         }
         /* Стили для выпадающего списка */
         .token-selection select {
-            background-color: #1c3b1c;
+            background-color: #0f1b0f;
             color: #d1e7d1;
             padding: 8px;
             border-radius: 5px;
             width: 100%;
             border: none;
             font-size: 16px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
         }
+        /* Стили для опций в списке */
         .token-selection select option {
-            color: #d1e7d1;
-            padding: 8px;
+            color: #ffffff; /* Белый текст */
+            background-color: #0f1b0f; /* Тёмный фон для опций */
+            padding: 10px;
             font-size: 16px;
-            background-color: #0f1b0f;
         }
-        .token-selection select option:hover {
-            background-color: #297e3e;
+        /* Подсветка для выбранного элемента */
+        .token-selection select option:checked {
+            background-color: #2ecc71; /* Зелёный цвет для выбранного элемента */
+            color: #ffffff;
+        }
+        /* Подсветка при наведении */
+        .token-selection select:hover option {
+            background-color: #2ecc71;
         }
         .deposit-address {
             font-size: 14px;
