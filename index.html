@@ -64,6 +64,7 @@
             background-color: #133213;
             border-radius: 10px;
         }
+        /* Стили для выпадающего списка */
         .token-selection select {
             background-color: #1c3b1c;
             color: #d1e7d1;
@@ -71,6 +72,16 @@
             border-radius: 5px;
             width: 100%;
             border: none;
+            font-size: 16px;
+        }
+        .token-selection select option {
+            color: #d1e7d1;
+            padding: 8px;
+            font-size: 16px;
+            background-color: #0f1b0f;
+        }
+        .token-selection select option:hover {
+            background-color: #297e3e;
         }
         .deposit-address {
             font-size: 14px;
@@ -119,10 +130,12 @@
     <div class="token-selection">
         <label for="token">Select the token to deposit (Min 0.0001 BTC)</label>
         <select id="token">
-            <option value="btc">BTC</option>
+            <option value="tgc">TGC</option>
+            <option value="btc" selected>BTC</option>
             <option value="eth">ETH</option>
-            <option value="usdt">USDT</option>
             <option value="ton">TON</option>
+            <option value="usdt">USDT</option>
+            <option value="ltc">LTC</option>
         </select>
     </div>
 
@@ -151,4 +164,3 @@
 
 </body>
 </html>
-
