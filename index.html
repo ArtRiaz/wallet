@@ -25,11 +25,16 @@
             box-sizing: border-box;
             text-align: center;
         }
+        .title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
         .qr-container {
             display: inline-block;
             width: 200px;
             height: 200px;
-            margin-top: 20px;
+            margin: 20px auto;
             background-color: #0f1b0f; /* Цвет фона вокруг QR-кода */
             padding: 10px;
             border-radius: 10px;
@@ -45,11 +50,15 @@
 <body>
 
 <div class="container">
+    <!-- Заголовок -->
+    <div class="title">Deposit</div>
+
     <!-- QR-код -->
     <div class="qr-container">
         <canvas id="qrCode"></canvas>
     </div>
 
+    <!-- Текст ниже QR-кода -->
     <div class="footer-text">
         Send only BTC to this deposit address.<br>
         Values sent below the minimum amount or to an incorrect address will be lost.
