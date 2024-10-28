@@ -66,7 +66,7 @@
         }
         /* Стили для выпадающего списка */
         .token-selection select {
-            background-color: #1a3f3b; /* Тёмный фон выпадающего списка */
+            background-color: #1a3f3b; /* Более тёмный зелёный фон */
             color: #ffffff;
             padding: 10px;
             border-radius: 5px;
@@ -102,9 +102,6 @@
             margin-top: 10px;
             display: flex;
             justify-content: center;
-            padding: 10px;
-            background-color: #133213;
-            border-radius: 10px;
         }
         .footer-text {
             font-size: 12px;
@@ -139,7 +136,7 @@
         </div>
     </div>
 
-    <!-- Выбор токена -->
+    <!-- Выбор токена и адрес депозита -->
     <div class="token-selection">
         <label for="token">Select the token to deposit (Min 0.0001 BTC)</label>
         <select id="token">
@@ -152,15 +149,10 @@
         </select>
     </div>
 
-    <!-- QR-код -->
-    <div class="qr-code" id="qrCodeContainer">
-        <!-- QR-код будет сгенерирован здесь -->
-    </div>
-
-    <!-- Адрес депозита -->
     <div class="deposit-info">
         <div>Deposit address</div>
         <div class="deposit-address" id="depositAddress">bc1qxw3l0685tf7qnvk7wyy3m7wz...</div>
+        <div class="qr-code" id="qrCode"></div>
     </div>
 
     <div class="footer-text">
@@ -174,7 +166,7 @@
     const depositAddress = "bc1qxw3l0685tf7qnvk7wyy3m7wz...";  // Используйте реальный адрес
 
     // Генерация QR-кода
-    QRCode.toCanvas(document.getElementById('qrCodeContainer'), depositAddress, { width: 150 }, function (error) {
+    QRCode.toCanvas(document.getElementById('qrCode'), depositAddress, { width: 150 }, function (error) {
         if (error) console.error(error);
         console.log('QR-код успешно создан!');
     });
