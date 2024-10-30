@@ -23,6 +23,7 @@
             max-width: 400px;
             padding: 20px;
             box-sizing: border-box;
+            text-align: center;
         }
         /* Верхняя панель */
         .top-bar {
@@ -58,15 +59,23 @@
             font-size: 18px;
             cursor: pointer;
         }
-        .balance, .token-selection, .deposit-info {
+        .balance {
             margin-top: 20px;
             padding: 10px;
             background-color: #133213;
             border-radius: 10px;
         }
+        /* Окно депозита */
+        .deposit-window {
+            display: none; /* Скрыто по умолчанию */
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #133213;
+            border-radius: 10px;
+        }
         /* Стили для выпадающего списка */
         .token-selection select {
-            background-color: #1a3f3b; /* Более тёмный зелёный фон */
+            background-color: #1a3f3b;
             color: #ffffff;
             padding: 10px;
             border-radius: 5px;
@@ -74,24 +83,6 @@
             border: none;
             font-size: 16px;
             cursor: pointer;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-        /* Стили для опций */
-        .token-selection select option {
-            background-color: #1a3f3b; /* Цвет фона для опций */
-            color: #ffffff; /* Белый текст для опций */
-            padding: 10px;
-        }
-        /* Подсветка для выбранного элемента */
-        .token-selection select option:checked {
-            background-color: #2ecc71; /* Зелёная подсветка выбранного элемента */
-            color: #ffffff;
-        }
-        /* Подсветка при наведении */
-        .token-selection select:hover option {
-            background-color: #2ecc71;
         }
         .deposit-address {
             font-size: 14px;
@@ -127,50 +118,58 @@
 
     <!-- Депозит / Вывод -->
     <div class="actions">
-        <button>Deposit</button>
+        <button onclick="openDepositWindow()">Deposit</button>
         <button>Withdraw</button>
         <button>Buy crypto</button>
     </div>
 
-    <!-- Баланс и выбор токенов -->
+    <!-- Баланс -->
     <div class="balance">
         <div class="token-name">
             <span>₮ 0.00000</span>
         </div>
     </div>
 
-    <!-- Выбор токена и адрес депозита -->
-    <div class="token-selection">
-        <label for="token">Select the token to deposit (Min 0.0001 BTC)</label>
-        <select id="token">
-            <option value="tgc">TGC</option>
-            <option value="btc" selected>BTC</option>
-            <option value="eth">ETH</option>
-            <option value="ton">TON</option>
-            <option value="usdt">USDT</option>
-            <option value="ltc">LTC</option>
-        </select>
-    </div>
-
-    <div class="deposit-info">
-        <div>Deposit address</div>
-        <div class="deposit-address" id="depositAddress">bc1qxw3l0685tf7qnvk7wyy3m7wz...</div>
-
-        <!-- QR-код -->
-        <div class="qr-code">
-            <canvas id="qrCode"></canvas>
+    <!-- Окно депозита -->
+    <div class="deposit-window" id="depositWindow">
+        <div class="token-selection">
+            <label for="token">Select the token to deposit (Min 0.0001 BTC)</label>
+            <select id="token">
+                <option value="tgc">TGC</option>
+                <option value="btc" selected>BTC</option>
+                <option value="eth">ETH</option>
+                <option value="ton">TON</option>
+                <option value="usdt">USDT</option>
+                <option value="ltc">LTC</option>
+            </select>
         </div>
-    </div>
 
-    <div class="footer-text">
-        Send only the selected token to this deposit address.<br>
-        Values sent below the minimum amount or to an incorrect address will be lost.
+        <div class="deposit-info">
+            <div>Deposit address</div>
+            <div class="deposit-address" id="depositAddress">bc1qxw3l0685tf7qnvk7wyy3m7wz...</div>
+
+            <!-- QR-код -->
+            <div class="qr-code">
+                <canvas id="qrCode"></canvas>
+            </div>
+        </div>
+
+        <div class="footer-text">
+            Send only the selected token to this deposit address.<br>
+            Values sent below the minimum amount or to an incorrect address will be lost.
+        </div>
     </div>
 </div>
 
 <script>
+    // Открытие окна депозита
+    function openDepositWindow() {
+        document.getElementById('depositWindow').style.display = 'block';
+    }
+
     // Адрес депозита для QR-кода
     const depositAddress = "bc1qxw3l0685tf7qnvk7wyy3m7wz..."; // Используйте реальный адрес
+
     // Генерация QR-кода
     QRCode.toCanvas(document.getElementById('qrCode'), depositAddress, {
         width: 180, // Размер QR-кода
