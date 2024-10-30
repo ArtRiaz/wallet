@@ -65,9 +65,8 @@
             background-color: #133213;
             border-radius: 10px;
         }
-        /* Окно депозита */
+        /* Окно депозита (видимо по умолчанию) */
         .deposit-window {
-            display: none; /* Скрыто по умолчанию */
             margin-top: 20px;
             padding: 20px;
             background-color: #133213;
@@ -118,7 +117,7 @@
 
     <!-- Депозит / Вывод -->
     <div class="actions">
-        <button onclick="openDepositWindow()">Deposit</button>
+        <button>Deposit</button>
         <button>Withdraw</button>
         <button>Buy crypto</button>
     </div>
@@ -130,7 +129,7 @@
         </div>
     </div>
 
-    <!-- Окно депозита -->
+    <!-- Окно депозита (по умолчанию отображается) -->
     <div class="deposit-window" id="depositWindow">
         <div class="token-selection">
             <label for="token">Select the token to deposit (Min 0.0001 BTC)</label>
@@ -162,11 +161,6 @@
 </div>
 
 <script>
-    // Открытие окна депозита
-    function openDepositWindow() {
-        document.getElementById('depositWindow').style.display = 'block';
-    }
-
     // Адрес депозита для QR-кода
     const depositAddress = "bc1qxw3l0685tf7qnvk7wyy3m7wz..."; // Используйте реальный адрес
 
