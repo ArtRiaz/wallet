@@ -161,6 +161,14 @@
 </div>
 
 <script>
+    // Инициализация Telegram WebApp
+    if (window.Telegram.WebApp) {
+        // Расширяем веб-приложение на весь экран
+        window.Telegram.WebApp.expand();
+    } else {
+        console.warn('Telegram WebApp не поддерживается в этом окружении.');
+    }
+    
     // Адрес депозита для QR-кода
     const depositAddress = "bc1qxw3l0685tf7qnvk7wyy3m7wz..."; // Используйте реальный адрес
 
